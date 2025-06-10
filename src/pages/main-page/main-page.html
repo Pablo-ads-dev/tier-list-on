@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- link do arquivo de estilo -->
+    <link rel="stylesheet" href="main-page.css" />
+
+</head>
+
+<body class="bodyCss">
+    <header class="container-fluid container-header">
+        <div class="row">
+            <div class="d-flex justify-content-center mt-4">
+                <h3 class="text-light">Teste</h3>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <main class="container-xxl containerList py-4">
+        <section class="wallet">
+            <!-- Tier List -->
+            <div class="row mb-3" id="tierList">
+                <div class="col-12 d-flex align-items-center bordered tierRow" id="tier1">
+                    <div class="blockTier text-center editableDiv" contenteditable="true" maxlength="30"
+                        autocomplete="off" style="background-color: #ff7f7f;" spellcheck="false">
+                        S
+                    </div>
+                    <div class="tier-sort dropzone" data-ordem="1"></div>
+                    <div class="settings">
+                        <button class="btn"><i class="fa-solid fa-gear fa-xl text-light"></i></button>
+                    </div>
+                </div>
+                <div class="col-12 d-flex align-items-center bordered tierRow" id="tier2">
+                    <div class="blockTier text-center editableDiv " contenteditable="true" maxlength="30"
+                        autocomplete="off" style="background-color: #ffff7f;" spellcheck="false">
+                        A
+                    </div>
+                    <div class="tier-sort dropzone" data-ordem="2"></div>
+                    <div class="settings">
+                        <button class="btn"> <i class="fa-solid fa-gear fa-xl text-light"></i></button>
+                    </div>
+                </div>
+                <div class="col-12 d-flex align-items-center bordered tierRow" id="tier3">
+                    <div class="blockTier text-center editableDiv" contenteditable="true" maxlength="30"
+                        autocomplete="off" style="background-color: #ffbf7f;" spellcheck="false">
+                        B
+                    </div>
+                    <div class="tier-sort dropzone" data-ordem="3"></div>
+                    <div class="settings">
+                        <button class="btn"> <i class="fa-solid fa-gear fa-xl text-light"></i></button>
+                    </div>
+                </div>
+                <div class="col-12 d-flex align-items-center bordered tierRow" id="tier4">
+                    <div class="blockTier text-center editableDiv" contenteditable="true" maxlength="30"
+                        autocomplete="off" style="background-color: #ffdf7f;" spellcheck="false">
+                        C
+                    </div>
+                    <div class="tier-sort dropzone" data-ordem="4"></div>
+                    <div class="settings">
+                        <button class="btn"> <i class="fa-solid fa-gear fa-xl text-light"></i></button>
+                    </div>
+                </div>
+                <div class="col-12 d-flex align-items-center bordered tierRow" id="tier5">
+                    <div class="blockTier text-center editableDiv" contenteditable="true" maxlength="30"
+                        autocomplete="off" style="background-color: #bfff7f;" spellcheck="false">
+                        D
+                    </div>
+                    <div class="tier-sort dropzone" data-ordem="5"></div>
+                    <div class="settings">
+                        <button class="btn"> <i class="fa-solid fa-gear fa-xl text-light"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão para abrir o menu lateral -->
+            <div class="row mb-3">
+                <div class="col-md-1 text-start">
+                    <button class="btnProprio" onclick="limpar()">Limpar</button>
+                </div>
+                <div class="col-md-11 text-end">
+                    <button class="btnProprio" id="btnNav" onclick="toggleSidenav(600)">Adicionar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="espaco-imagens borda-espaco-imagem d-none col-md-12 mt-3 mb-3 p-2" id="espacoImagem">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="" class="text-light">Adicionar Imagem</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="imagemInput" accept=".png, .jpg, .jpeg">
+                        <button class="btnProprio" onclick="confirmarImagem()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-12">
+                    <button class="btnProprioBlock">Concluir</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="sidenav" class="sidenav">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light">
+                    <h3>Novo Tier</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-6">
+                <label for="">Nome da Tier</label>
+                <input type="text" class="form-control " maxlength="30" id="tierName">
+            </div>
+            <div class="col-md-6">
+                <label for="">Cor do Tier</label>
+                <div class="input-group">
+                    <input type="color" class="form-control form-control-color" id="tierColor" maxlength="30"
+                        value="#DD3131">
+                    <button class="btnProprio"><i class="fas fa-palette"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 d-flex justify-content-end gap-1">
+                <button class="btnProprio" onclick="toggleSidenav()">Fechar</button>
+                <button class="btnProprio" onclick="criarTier()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+    <script src="/dist/pages/main-page/main-page.js"></script>
+</body>
+
+</html>

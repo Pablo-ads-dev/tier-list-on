@@ -1,0 +1,30 @@
+{
+  "name": "tierlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build:ts": "tsc",
+    "build:esbuild": "esbuild src/pages/main-page/main-page.ts --bundle --outfile=dist/pages/main-page/main-page.js --format=esm --minify",
+    "build": "npm run build:esbuild",
+    "serve": "live-server --port=5500",
+    "start": "npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.21",
+    "esbuild": "^0.18.17",
+    "live-server": "^1.2.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@prisma/client": "^6.8.2",
+    "bootstrap": "^5.3.0",
+    "express": "^5.1.0",
+    "prisma": "^6.8.2",
+    "sweetalert2": "^11.21.2"
+  }
+}

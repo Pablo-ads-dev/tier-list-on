@@ -1,0 +1,168 @@
+.blockTier {
+    height: 100px;
+    width: 120px;
+    border-right: solid 1px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+    /* Impede que o texto estoure visualmente */
+    line-height: 1.2;
+    /* Controla espaçamento entre linhas */
+    font-size: 15px;
+    /* Ajuste conforme necessidade */
+    font-weight: bold;
+}
+
+.bordered {
+    border: 1.5px black solid;
+    padding: 0px;
+}
+
+.tierRow {
+    background-color: #161616;
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.bodyCss {
+    background-color: #222222;
+}
+
+.tier-sort {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.settings {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    /* Ou contain, dependendo do que quer */
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.espaco-imagens {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.borda-espaco-imagem {
+    border: 1px rgb(24, 24, 24) solid;
+    padding: 0px;
+}
+
+/* sidenav config */
+/* Sidenav oculta à direita */
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* escurecido */
+    z-index: 1040;
+    /* abaixo da sidenav */
+    display: none;
+}
+
+/* Mostrar overlay */
+.overlay.active {
+    display: block;
+}
+
+/* Sidenav (lado direito) */
+.sidenav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Oculto fora da tela */
+    width: 300px;
+    /* Customizável */
+    height: 100%;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    z-index: 1050;
+    transition: right 0.3s ease;
+}
+
+/* Mostrar sidenav */
+.sidenav.open {
+    right: 0;
+}
+
+/* Botão fechar */
+.sidenav .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.btnProprioBlock {
+    background-color: #fff;
+    color: #161616;
+    border: none;
+    padding: 6px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btnProprioBlock:hover {
+    background-color: #161616;
+    /* um cinza mais claro para o hover */
+    color: #f0f0f0;
+}
+
+.btnProprioBlock:focus {
+    outline: 2px solid #555;
+    outline-offset: 2px;
+}
+
+.btnProprio {
+    background-color: #161616;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btnProprio:hover {
+    background-color: #2a2a2a;
+    /* um cinza mais claro para o hover */
+    color: #f0f0f0;
+}
+
+.btnProprio:focus {
+    outline: 2px solid #555;
+    outline-offset: 2px;
+}
