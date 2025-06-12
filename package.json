@@ -5,15 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build:ts": "tsc",
     "build:esbuild": "esbuild src/pages/main-page/main-page.ts --bundle --outfile=dist/pages/main-page/main-page.js --format=esm --minify",
-    "build": "npm run build:esbuild",
-    "serve": "live-server --port=5500",
-    "start": "npm run build && npm run serve"
+    "build:copy-html": "cpx \"src/pages/**/*.html\" dist/pages",
+    "build:copy-css": "cpx \"src/pages/**/*.css\" dist/pages",
+    "build": "npm run build:esbuild && npm run build:copy-html && npm run build:copy-css"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.21",
+    "cpx": "^1.5.0",
     "esbuild": "^0.18.17",
     "live-server": "^1.2.2",
     "ts-node-dev": "^2.0.0",
