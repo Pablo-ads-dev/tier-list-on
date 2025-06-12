@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build:esbuild": "esbuild src/pages/main-page/main-page.ts --bundle --outfile=dist/pages/main-page/main-page.js --format=esm --minify",
+    "build:copy-html": "cpx \"src/pages/main-page/index.html\" dist/index.html",
     "build": "npm run build:esbuild"
   },
   "devDependencies": {
