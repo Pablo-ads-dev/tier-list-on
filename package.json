@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:esbuild": "esbuild src/pages/main-page/main-page.ts --bundle --outfile=dist/pages/main-page/main-page.js --format=esm --minify",
-    "build:copy-html": "cpx \"src/pages/main-page/index.html\" dist/index.html",
-    "build": "npm run build:esbuild"
+    "build:esbuild": "esbuild src/pages/main-page/main-page.ts --bundle --outfile=dist/pages/main-page/main-page.js --format=iife --minify",
+    "build:copy-html": "cpx \"src/pages/main-page/index.html\" dist",
+    "build:copy-css": "cpx \"src/pages/main-page/main-page.css\" dist/pages/main-page",
+    "build": "npm run build:esbuild && npm run build:copy-html && npm run build:copy-css",
+    "serve": "live-server dist --port=5500 --entry-file=index.html",
+    "start": "npm run build && npm run serve"
   },
   "devDependencies": {
+    "cpx": "^1.5.0",
     "esbuild": "^0.18.17",
+    "live-server": "^1.2.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
